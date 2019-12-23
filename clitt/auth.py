@@ -1,4 +1,5 @@
-from enviroment import CONSUMER_KEY, CONSUMER_SECRET
+from .enviroment import CONSUMER_KEY, CONSUMER_SECRET, HERE
+from pathlib import Path
 import tweepy
 import webbrowser
 import json
@@ -29,7 +30,7 @@ def run() -> tweepy.API:
     return tweepy.API(auth)
 
 def store_token(token):
-    with open('config/user_keys.json', 'w') as token_file:
+    with open(Path(HERE, 'config/user_keys.json'), 'w') as token_file:
         token_file.write(
             json.dumps(
                 {
@@ -41,7 +42,7 @@ def store_token(token):
 
 def fetch_token() -> (bool, None): 
     try:
-        with open('config/user_keys.json', 'r') as token_file:
+        with open(Path(HERE, 'config/user_keys.json'), 'r') as token_file:
             tokens = json.loads(token_file.read())
             if tokens["access_token"] is not None and tokens["access_token_secret"] is not None:
                 return True, tokens
