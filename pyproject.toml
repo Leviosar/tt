@@ -13,12 +13,13 @@ keywords = ["Twitter", "Client", "Command-line"]
 python = "^3.7"
 tweepy = "^3.8"
 colorama = "^0.4.1"
+click = "^7.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"
 
 [tool.poetry.scripts]
-clitt = "clitt.__main__:run"
+clitt = "clitt.__main__:cli"
 
 [build-system]
 requires = ["poetry>=0.12"]
