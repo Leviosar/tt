@@ -56,5 +56,5 @@ def fetch_token() -> (bool, None):
                 return True, tokens
             else:
                 return False, None
-    except:
+    except KeyError:
         return False, None

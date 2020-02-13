@@ -8,7 +8,7 @@ init(autoreset=True)
 
 def split_string(string, chunk_size):
     chunks = len(string)
-    return [string[i : i + chunk_size] for i in range(0, chunks, chunk_size)]
+    return [string[i : (i + chunk_size)] for i in range(0, chunks, chunk_size)]
 
 
 def show_tweet(tweet, reverse=False):

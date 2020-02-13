@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-from sys import argv
-
 import click
 
 from .actions import chat, dm, post, read, search, user
@@ -41,7 +39,7 @@ def command_dm(user, content):
 @click.option("--count", default=5, help="Number of tweets you want to read")
 def command_search(query, count):
     api = get_api_instance()
-    search(api, user, content)
+    search(api, query, count)
 
 
 @click.command(help="- Search for an user")
@@ -49,7 +47,7 @@ def command_search(query, count):
 @click.option("--count", default=5, help="Number of users you want to see")
 def command_user(query, count):
     api = get_api_instance()
-    user(api, user, content)
+    user(api, query, count)
 
 
 @click.group(

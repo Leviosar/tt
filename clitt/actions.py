@@ -1,5 +1,3 @@
-import os
-
 from tweepy import TweepError
 
 from .interface import show_message, show_tweet, show_user
