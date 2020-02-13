@@ -1,7 +1,6 @@
 import os
-from interface import show_user, show_message, show_tweet
+from .interface import show_user, show_message, show_tweet
 from tweepy import TweepError
-
 
 def dm(api, target, content):
     target = target.replace('@', '')
