@@ -6,7 +6,7 @@ from .interface import show_message, show_tweet, show_user
 
 
 def dm(api, target, content):
-    target = target.replace('@', '')
+    target = target.replace("@", "")
     user = api.get_user(target)
     api.send_direct_message(user.id, content)
 
@@ -29,17 +29,22 @@ def post(api, content):
 
 def chat(api, user):
     try:
-        user = user.replace('@', '')
+        user = user.replace("@", "")
         user = api.get_user(user)
         me = api.me()
         messages = api.list_direct_messages(count=100)
-        for message in sorted(messages, key=lambda message: int(message.created_timestamp)):
+        for message in sorted(
+            messages, key=lambda message: int(message.created_timestamp)
+        ):
             if int(message.message_create["sender_id"]) == user.id:
                 show_message(message, user)
-            if int(message.message_create["sender_id"]) == me.id and int(message.message_create["target"]["recipient_id"]) == user.id:
+            if (
+                int(message.message_create["sender_id"]) == me.id
+                and int(message.message_create["target"]["recipient_id"]) == user.id
+            ):
                 show_message(message, me, reverse=True)
     except TweepError:
-        print('Sorry, user not found')
+        print("Sorry, user not found")
 
 
 def read(api, count):
