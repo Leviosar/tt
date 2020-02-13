@@ -1,6 +1,8 @@
 import os
 from datetime import datetime
-from colorama import init, Fore, Style
+
+from colorama import Fore, Style, init
+
 init(autoreset=True)
 
 def split_string(string, chunk_size):

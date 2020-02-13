@@ -1,8 +1,11 @@
-from .enviroment import CONSUMER_KEY, CONSUMER_SECRET, HERE
-from pathlib import Path
-import tweepy
-import webbrowser
 import json
+import webbrowser
+from pathlib import Path
+
+import tweepy
+
+from .enviroment import CONSUMER_KEY, CONSUMER_SECRET, HERE
+
 
 def run() -> tweepy.API:
     

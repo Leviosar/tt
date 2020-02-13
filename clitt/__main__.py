@@ -1,8 +1,11 @@
 #!/usr/bin/env python
-import click
-from .actions import read, chat, dm, post, user, search
-from .auth import run as get_api_instance
 from sys import argv
+
+import click
+
+from .actions import chat, dm, post, read, search, user
+from .auth import run as get_api_instance
+
 
 @click.command(help="- Read the most recent status updates from your timeline")
 @click.option('--count', default=5, help="Number of tweets you want to read")
